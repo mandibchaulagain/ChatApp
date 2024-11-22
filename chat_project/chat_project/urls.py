@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from practiceConcepts.views import simpleDisplayToCheck
 urlpatterns = [
-    
+    path('api/hello', simpleDisplayToCheck.as_view(), name = 'hello-world'),
     path('admin/', admin.site.urls),
 ]
