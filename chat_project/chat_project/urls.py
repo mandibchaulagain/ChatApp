@@ -16,18 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from practiceConcepts.views import simpleDisplayToCheck
-from rest_framework import routers
-from practiceConcepts.views import UserViewSet, GroupViewSet, BookViewSet
 
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'groups', GroupViewSet)
-router.register(r'books', BookViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    path('api/hello', simpleDisplayToCheck.as_view(), name = 'hello-world'),
     path('admin/', admin.site.urls),
+    path('api/', include('chat.urls')),
 ]
