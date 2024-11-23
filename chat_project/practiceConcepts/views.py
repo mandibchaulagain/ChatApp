@@ -4,7 +4,8 @@ from rest_framework import status, permissions, viewsets
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from django.contrib.auth.models import User, Group
-from .serializers import UserSerializer, GroupSerializer
+from .models import Book
+from .serializers import UserSerializer, GroupSerializer, BookSerializer
 # Create your views here.
 
 class simpleDisplayToCheck(APIView):
@@ -25,3 +26,7 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all().order_by('name')
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+class BookViewSet(viewsets.ModelViewSet):
+    queryset = Book.objects.all()  # Define the queryset to work with the Book model
+    serializer_class = BookSerializer  # Use the BookSerializer for serialization and deserialization

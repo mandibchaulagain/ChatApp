@@ -18,11 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from practiceConcepts.views import simpleDisplayToCheck
 from rest_framework import routers
-from practiceConcepts.views import UserViewSet, GroupViewSet
+from practiceConcepts.views import UserViewSet, GroupViewSet, BookViewSet
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
+router.register(r'books', BookViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
